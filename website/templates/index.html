@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="utf-8">
+<title>Top Page</title>
+<meta name="description"  content="chloro's top page">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/ress.css' %}">
+
+</head>
+<body>
+  <header id="header" class="DownMove">
+    <h1><img src="{% static 'img/hat-wizard-solid.svg' %}" width="32" height="32"></h1>
+    <nav>
+    <ul id="g-navi">
+      <li><a href="#area-1">Page Top</a></li>
+      <li><a href="#area-2">Apps</a></li>
+      <li><a href="#area-3">Social Media</a></li>
+      <li><a href="#area-4">About Me</a></li>
+    </ul>
+  </nav>
+  </header>
+    
+  <main>
+
+    <p id="Vertical_Line">&nbsp;&nbsp;Run your own race in your own pace</p>
+
+    <section id="area-1">
+      
+      <h2>
+        <span>Everyone is running their own race, in their own time.</span>
+        <span>They are in their time zone, and</span>
+        <span>you are in yours.</span>
+        <span id="cite">&nbsp;</span>
+        <span id="cite"><a href="https://www.reddit.com/r/DecidingToBeBetter/comments/qucxy6/run_your_own_race_in_your_own_pace/" id="cite2">from Reddit</a></span>
+    </h2>
+      
+    <!--/area1--></section>
+      <section id="area-2">
+      <h2>Fan Apps Here</h2>
+      <p>Wait for more development</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+
+    <!--/area2--></section>
+      <section id="area-3">
+      <h2>Social Media</h2>
+      <p class="horizon"><a href="https://bit.ly/3RyT4rt" id="cite2"><img src="{% static 'img/square-twitter.svg' %}" width="24" height="24">twitter</a></p>
+      <p class="horizon"><a href="https://bit.ly/3Ctt6RM" id="cite2"><img src="{% static 'img/square-instagram.svg' %}" width="24" height="24">instagram</a></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>*secret key needed*</p>
+
+    <!--/area3--></section>
+    <section id="area-4">
+      <h2>What I have been doing</h2>
+      <p><a href="https://github.com/Chloro989" id="cite2">programming</a></p>
+      <p><a href="{% url 'apex_data' %}" id="cite2">apex legends</a></p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+
+    
+
+    <!--/area4--></section>
+  <!--/main--></main>
+
+  <footer id="footer">
+    <small>contact me at discord (the ID is hidden somewhere)	( ^^)r"</small>  
+  </footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="{% static 'js/scroll.js' %}"></script>
+</body>
+</html>
