@@ -29,13 +29,12 @@ DEBUG = env('DEBUG')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-hku^kdc$ts!mpv9ed2ipnoy1y^h88t0&n)nhtkv%o@c&++^066"
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['3.94.15.137','chloro966.net']
 
 # Application definition
 
@@ -119,17 +118,17 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-STATIC_URL = "static/"
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+# https://docs.djangoproject.com/en/4.1/howto/static-files
+STATIC_ROOT = '/usr/share/nginx/html/static'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+        '/home/ubuntu/django/lib/python3.10/site-packages/django/contrib/admin/static',
+        '/home/ubuntu/MySite/website/static/'
+        ]
 
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
