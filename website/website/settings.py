@@ -15,14 +15,13 @@ import os
 import environ
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, '.env'))
-SECRET_KEY = env('SECRET_KEY')
-DEBUG = env.bool('DEBUG')
+env.read_env(os.path.join(BASE_DIR, ".env"))
+SECRET_KEY = env("SECRET_KEY")
+DEBUG = env.bool("DEBUG")
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,7 +33,7 @@ DEBUG = env.bool('DEBUG')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '3.94.15.137', 'chloro966.net']
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "3.94.15.137", "chloro966.net"]
 
 
 # Application definition
@@ -46,7 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-	"guessing_number",
+    "guessing_number",
 ]
 
 MIDDLEWARE = [
@@ -64,7 +63,7 @@ ROOT_URLCONF = "website.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -77,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-APPEND_SLASH=False
+APPEND_SLASH = False
 WSGI_APPLICATION = "website.wsgi.application"
 
 
@@ -102,9 +101,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
 
@@ -124,18 +129,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / "static",
 ]
 
 # STATIC_ROOT = r"C:\Users\chloro\.Nimi Places\Containers\Quick access\python\dpython_django\AWS2022-10-24-main\website\static"
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 """
 STATICFILES_DIRS = [
         '/home/ubuntu/django/lib/python3.10/site-packages/django/contrib/admin/static',
         '/home/ubuntu/MySite/website/static/'
         ]
 """
-
 
 
 # Default primary key field type

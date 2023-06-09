@@ -1,6 +1,6 @@
 from .base import *
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 DEBUG = True
 
@@ -12,8 +12,8 @@ DATABASES = {
 }
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / "static",
 ]
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
-INTERNAL_IPS = ['127.0.0.1']
+INTERNAL_IPS = ["127.0.0.1"]
