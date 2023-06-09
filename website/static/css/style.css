@@ -3,11 +3,11 @@
 /*========= スクロール途中でヘッダーが表示＆非表示するためのCSS ===============*/
 
 #header{
-    /*fixedで上部固定*/
+  /*fixedで上部固定*/
   position: fixed;
   height: 3.5rem;
   width:100%;
-    z-index: 999;/*最前面へ*/
+  z-index: 999;/*最前面へ*/
   /*以下はレイアウトのためのCSS*/
   display: flex;
   justify-content: normal;
@@ -16,6 +16,7 @@
   color:#fff;
   text-align: right;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 /*　上に上がる動き　*/
