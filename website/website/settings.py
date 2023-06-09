@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "guessing_number",
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,8 @@ TEMPLATES = [
         },
     },
 ]
+
+APPEND_SLASH=False
 
 WSGI_APPLICATION = "website.wsgi.application"
 
