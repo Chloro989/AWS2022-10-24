@@ -31,7 +31,6 @@ DEBUG = env.bool("DEBUG")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 LOGGING = {
     'version': 1,
