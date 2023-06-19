@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Reset CSS-->
+    <link rel="stylesheet" href="{% static 'css/ress.css' %}">
+
+    <style>
+        nav ul li a {
+            display: block;
+            color: #000;
+            padding: 1rem;
+            transition: all 0.3s;
+            font-family: 'Times New Roman';
+        }
+
+        body {
+            font-family: 'Arial';
+        }
+
+        .image-thumbnail {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .list-group-item a {
+            text-decoration: none;
+            color: black;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+    </style>
+
+</head>
+
+<body class="m-5">
+    <header id="header" class="DownMove">
+        <nav>
+            <ul id="g-navi">
+                <li><a href="{% url 'top' %}">Back to Top</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <div class="row">
+            <div class="col-md-3">
+
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Categories
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{% url 'gallery' %}">All</a>
+                        </li>
+                        {% for category in categories %}
+                        <li class="list-group-item">
+                            <a href="{% url 'gallery' %}?category={{category.name}}">{{category.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="card-footer">
+                        <a href="{% url 'add' %}" class="btn btn-block btn-dark btn-sm">Add Photo</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    {% for photo in photos %}
+                    <div class="col-md-4">
+                        <div class="card my-2">
+                            <img src="{{photo.image.url}}" class="image-thumbnail" alt="...">
+                            <div class="card-body">
+                                <small>Category: {{photo.category.name}}</small>
+                            </div>
+                            <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <h3>No photos...</h3>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
