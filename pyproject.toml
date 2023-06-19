@@ -7,11 +7,14 @@ readme = "README.md"
 packages = [{include = "django_dev"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "3.10.6"
 Django = "^4.2.2"
 environ = "^1.0"
 django-environ = "^0.10.0"
 psycopg2-binary = "^2.9.6"
+pillow = "^9.5.0"
+boto3 = "^1.26.155"
+django-storages = "^1.13.2"
 
 
 [build-system]

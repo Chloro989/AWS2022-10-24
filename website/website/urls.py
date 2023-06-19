@@ -11,7 +11,10 @@ urlpatterns = [
     path("apex_data/", ApexDataView.as_view(), name="apex_data"),
     path("", include("guessing_number.urls")),
     path("timer/", TimerView.as_view(), name="timer"),
+    path("", include("gallery.urls")),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

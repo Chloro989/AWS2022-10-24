@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "guessing_number",
+    "gallery",
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -132,8 +134,12 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+MEDIA_ROOT = BASE_DIR / "static/images"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 # STATIC_ROOT = r"C:\Users\chloro\.Nimi Places\Containers\Quick access\python\dpython_django\AWS2022-10-24-main\website\static"
 STATIC_URL = "/static/"
+MEDIA_URL = "/images/"
 """
 STATICFILES_DIRS = [
         '/home/ubuntu/django/lib/python3.10/site-packages/django/contrib/admin/static',
@@ -146,3 +152,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+AWS_ACCESS_KEY_ID = "AKIAQ3MOQX22WDKYIRUE"
+AWS_SECRET_ACCESS_KEY = "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"
+
+AWS_STORAGE_BUCKET_NAME = "photoshare20230619"
+AWS_QUERYSTRING_AUTH = False
