@@ -28,13 +28,20 @@ DEBUG = env.bool("DEBUG")
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "3.94.15.137", "chloro966.net"]
+# Auth
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
 
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "gallery"
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "3.94.15.137", "chloro966.net"]
 
 # Application definition
 
@@ -48,6 +55,10 @@ INSTALLED_APPS = [
     "guessing_number",
     "gallery",
     "storages",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 ]
 
 MIDDLEWARE = [
@@ -153,9 +164,17 @@ STATICFILES_DIRS = [
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+"""
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage"
 
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-AWS_QUERYSTRING_AUTH = env.bool('AWS_QUERYSTRING_AUTH')
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+AWS_QUERYSTRING_AUTH = env.bool("AWS_QUERYSTRING_AUTH")
+"""
+
+DEFAULT_FILE_STORAGE = "storages.backends.azure_storage.AzureStorage"
+
+AZURE_ACCOUNT_NAME = env("AZURE_ACCOUNT_NAME")
+AZURE_ACCOUNT_KEY = env("AZURE_ACCOUNT_KEY")
+AZURE_CONTAINER = env("AZURE_CONTAINER")

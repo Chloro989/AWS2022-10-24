@@ -33,6 +33,16 @@ DEBUG = env.bool("DEBUG")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 
+# Auth
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "gallery"
+
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "3.94.15.137", "chloro966.net"]
 
 
@@ -48,6 +58,10 @@ INSTALLED_APPS = [
     "guessing_number",
     "gallery",
     "storages",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 ]
 
 MIDDLEWARE = [
@@ -165,5 +179,5 @@ AWS_QUERYSTRING_AUTH = env.bool("AWS_QUERYSTRING_AUTH")
 DEFAULT_FILE_STORAGE = "storages.backends.azure_storage.AzureStorage"
 
 AZURE_ACCOUNT_NAME = env("AZURE_ACCOUNT_NAME")
-AZURE_ACCOUNT_KEY =  env("AZURE_ACCOUNT_KEY")
+AZURE_ACCOUNT_KEY = env("AZURE_ACCOUNT_KEY")
 AZURE_CONTAINER = env("AZURE_CONTAINER")
