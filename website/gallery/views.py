@@ -1,5 +1,9 @@
+from django.views.generic.base import TemplateView
+from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from .models import Category, Photo
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -20,7 +24,7 @@ def viewPhoto(request, pk):
     photo = Photo.objects.get(id=pk)
     return render(request, "gallery/photo.html", {"photo": photo})
 
-
+@login_required
 def addPhoto(request):
     categories = Category.objects.all()
 
@@ -48,3 +52,17 @@ def addPhoto(request):
 
     context = {"categories": categories}
     return render(request, "gallery/add.html", context)
+
+
+class LicenseView(TemplateView):
+    template_name = "license.html"
+
+@login_required
+def deletePhoto(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
+
+    if request.method == "POST":
+        photo.delete()
+        return redirect("gallery")
+
+    return render(request, "gallery/delete.html", {"photo": photo})

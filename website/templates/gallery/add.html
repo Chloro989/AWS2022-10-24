@@ -8,13 +8,35 @@
     <title>Add Photo</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Reset CSS-->
     <link rel="stylesheet" href="{% static 'css/ress.css' %}">
+
+    <style>
+        body {
+            font-family: 'Khula', sans-serif;
+        }
+
+        .btn-dark,
+        .btn-primary {
+            border-radius: 0;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        .card {
+            transition: 0.3s;
+        }
+    </style>
+
 </head>
 
 <body class="m-5">
     <div class="container">
-
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>

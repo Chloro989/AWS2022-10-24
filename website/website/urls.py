@@ -12,6 +12,7 @@ urlpatterns = [
     path("", include("guessing_number.urls")),
     path("timer/", TimerView.as_view(), name="timer"),
     path("", include("gallery.urls")),
+    path("accounts/", include("allauth.urls")),
 ]
 
 

@@ -26,25 +26,34 @@ DEBUG = env.bool("DEBUG")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-
-
 # SECURITY WARNING: don't run with debug turned on in production!
 
+# Auth
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "gallery"
+
+# LOG
+
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "debug.log",
         },
     },
-    'root': {
-        'handlers': ['file'],
-        'level': 'DEBUG',
+    "root": {
+        "handlers": ["file"],
+        "level": "DEBUG",
     },
 }
 
@@ -60,8 +69,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "guessing_number",
-    "gallery", 	
+    "gallery",
     "storages",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
 ]
 
 MIDDLEWARE = [
@@ -145,7 +158,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files
 STATIC_ROOT = "/usr/share/nginx/html/static"
-MEDIA_ROOT = BASE_DIR / "static/images" 
+MEDIA_ROOT = BASE_DIR / "static/images"
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     "/home/ubuntu/django/lib/python3.10/site-packages/django/contrib/admin/static",
@@ -169,5 +182,5 @@ AWS_QUERYSTRING_AUTH = env.bool("AWS_QUERYSTRING_AUTH")
 DEFAULT_FILE_STORAGE = "storages.backends.azure_storage.AzureStorage"
 
 AZURE_ACCOUNT_NAME = env("AZURE_ACCOUNT_NAME")
-AZURE_ACCOUNT_KEY =  env("AZURE_ACCOUNT_KEY")
+AZURE_ACCOUNT_KEY = env("AZURE_ACCOUNT_KEY")
 AZURE_CONTAINER = env("AZURE_CONTAINER")
