@@ -46,6 +46,11 @@ CORS_ORIGIN_WHITELIST = [
     "https://chloro966.net",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://chloro966.net",
+]
+
+
 # LOG
 
 LOGGING = {
