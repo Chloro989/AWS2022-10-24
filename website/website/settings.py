@@ -39,6 +39,12 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = "gallery"
 
+#Cors
+
+CORS_ORIGIN_WHITELIST = [
+    "https://chloro966.net",
+]
+
 # LOG
 
 LOGGING = {
@@ -75,6 +81,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -85,6 +92,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "website.urls"
