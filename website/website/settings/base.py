@@ -148,12 +148,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-MEDIA_ROOT = BASE_DIR / "static/images"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "static"
 
-# STATIC_ROOT = r"C:\Users\chloro\.Nimi Places\Containers\Quick access\python\dpython_django\AWS2022-10-24-main\website\static"
+STATIC_ROOT = r"C:\Users\chloro\.Nimi Places\Containers\Quick access\python\dpython_django\AWS2022-10-24-DEV\website\static"
 STATIC_URL = "/static/"
-MEDIA_URL = "/images/"
 """
 STATICFILES_DIRS = [
         '/home/ubuntu/django/lib/python3.10/site-packages/django/contrib/admin/static',
