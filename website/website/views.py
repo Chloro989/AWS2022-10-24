@@ -13,3 +13,9 @@ class ApexDataView(TemplateView):
 
 class TimerView(TemplateView):
     template_name = "timer.html"
+
+class StudyTopView(TemplateView):
+    template_name = "study_top.html"
+
+class JukenSugakuView(TemplateView):
+    template_name = "juken_sugaku.html"
