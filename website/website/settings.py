@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "corsheaders",
+    "django.contrib.sitemaps",
 ]
 
 MIDDLEWARE = [

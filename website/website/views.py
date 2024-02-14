@@ -1,6 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.http import HttpResponse
 
 
 class TopView(TemplateView):
@@ -19,3 +20,10 @@ class StudyTopView(TemplateView):
 
 class JukenSugakuView(TemplateView):
     template_name = "juken_sugaku.html"
+
+def robots_txt(request):
+    lines = [
+        "User-Agent: *",
+        "Disallow: /admin/",  # クローラーがアクセスすべきでないパス
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
