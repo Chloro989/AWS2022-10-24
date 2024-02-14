@@ -4,6 +4,7 @@ from .views import TopView, ApexDataView, TimerView, StudyTopView,JukenSugakuVie
 from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -15,6 +16,7 @@ urlpatterns = [
     path("timer/", TimerView.as_view(), name="timer"),
     path("", include("gallery.urls")),
     path("accounts/", include("allauth.urls")),
+    path("robots.txt", views.robots_txt),
 ]
 
 
